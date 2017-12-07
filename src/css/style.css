@@ -7,9 +7,37 @@
 body {
   display: flex;
   flex: 1;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100vh;
+
+  font-family: sans-serif;
 
   transition: background-color 220ms ease-in;
+}
+
+.header {
+  width: 100%;
+  max-width: 1200px;
+  padding-top: 12px;
+  padding-left: 12px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 200;
+
+  transition: color 180ms ease-out;
+}
+
+.header--white h1 {
+  color: #fff;
+}
+
+.header--black h1 {
+  color: #000;
 }
 
 .form {
@@ -18,8 +46,7 @@ body {
   justify-content: center;
 
   width: 80%;
-  max-width: 240px; 
-  height: 100vh;
+  max-width: 240px;
 }
 
 .form__field {
@@ -40,7 +67,6 @@ body {
   height: 1px;
 
   transition: all 180ms ease-out;
-  /* transition: color 220ms ease-out; */
 }
 
 .form__field:last-child {
@@ -98,4 +124,57 @@ body {
 
 .form__field--black::after {
   background-color: #000;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  padding: 12px;
+}
+
+.list {
+  display: flex;
+  width: 40%;
+  list-style: none;
+}
+
+.list__item {
+  margin-right: 8px;
+}
+
+.list__item a {
+  font-size: 14px;
+  transition: color 180ms ease-out;
+}
+
+.footer small {
+  width: 10%;
+  text-align: center;
+  transition: color 180ms ease-out;
+}
+
+.footer--white .list__item a,
+.footer--white small {
+  color: #fff;
+}
+
+.footer--black .list__item a,
+.footer--black small {
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .list {
+    width: 25%;
+  }
+  .footer small {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header h1 {
+    padding-top: 24px;
+  }
 }

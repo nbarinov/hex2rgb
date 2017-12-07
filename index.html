@@ -9,6 +9,10 @@
   <script src="dist/hex2rgb.js"></script>
 </head>
 <body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <header class="header  header--black">
+    <h1>hex2rgb</h1>
+  </header>
   <section class="form">
     <div class="form__field  form__field--black">
       <input type="text" id="hex" class="form__input" placeholder="hex">
@@ -17,7 +21,17 @@
       <input type="text" id="rgb" class="form__input" placeholder="rgb">
     </div>
   </section>
+  <footer class="footer  footer--black">
+    <ul class="list">
+      <li class="list__item"><a href="https://github.com/nbarinov">GitHub</a></li>
+      <li class="list__item"><a href="https://nbarinov.github.io">GitHub Page</a></li>
+    </ul>
+    <small id="year"></small>
+  </footer>
 
   <script src="src/js/script.js"></script>
+  <script>
+    document.getElementById("year").innerHTML = (new Date()).getFullYear();
+  </script>
 </body>
 </html>

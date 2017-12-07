@@ -2,7 +2,9 @@
 
 var hex = document.getElementById('hex'),
     rgb = document.getElementById('rgb'),
-    fields = document.querySelectorAll('.form__field');
+    header = document.querySelector('.header'),
+    fields = document.querySelectorAll('.form__field'),
+    footer = document.querySelector('.footer');
 
 function setBodyBackgroundColor(color) {
   document.body.style.backgroundColor = color;
@@ -20,6 +22,28 @@ function addFocusClass(element) {
 
 function removeFocusClass(element) {
   element.parentNode.classList.remove('form__field--focus');
+}
+
+function toggleColor(color) {
+  if (color === "white") {
+    if (header.classList.contains('header--black')) {
+      header.classList.remove('header--black');
+      footer.classList.remove('footer--black');
+    }
+
+    header.classList.add('header--white');
+    footer.classList.add('footer--white');
+  }
+
+  if (color === "black") {
+    if (header.classList.contains('header--white')) {
+      header.classList.remove('header--white');
+      footer.classList.remove('footer--white');
+    }
+
+    header.classList.add('header--black');
+    footer.classList.add('footer--black');
+  }
 }
 
 hex.addEventListener('focus', function(e) { addFocusClass(e.target); });
@@ -59,6 +83,8 @@ hex.addEventListener('input', function(e) {
         field.classList.add('form__field--black');
       }
     });
+
+    toggleColor(color);
   }
 });
 
@@ -94,6 +120,8 @@ rgb.addEventListener('input', function(e) {
           field.classList.add('form__field--black');
         }
       });
+
+      toggleColor(color);
     }
   }
 });
